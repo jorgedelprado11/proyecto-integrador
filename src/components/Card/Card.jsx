@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Card.module.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Card({
   id,
@@ -19,9 +19,9 @@ export default function Card({
           X
         </button>
         <h2 className={styles.name}>
-          <Link className={styles.link} to={`/detail/${id}`}>
+          <NavLink className={styles.link} to={`/detail/${id}`}>
             {name}
-          </Link>
+          </NavLink>
         </h2>
         <img className={styles.image} src={image} alt="" />
       </div>
