@@ -1,7 +1,7 @@
 .div{
     width: 15rem;
     height: 15rem;
-    background-color: rgb(174, 173, 160);
+    background-color: rgba(174, 173, 160, 0.726);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,7 +22,7 @@
 
 .image{
     width: 100%;
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
 }
 
 .btn{
