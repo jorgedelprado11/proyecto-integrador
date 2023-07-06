@@ -1,16 +1,33 @@
 import SearchBar from "../SearchBar/SearchBar";
 import styles from "./Nav.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
-const Nav = ({ onSearch }) => {
+const Nav = ({ onSearch, access, setAccess }) => {
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    setAccess(false);
+    navigate("/");
+  };
+
   return (
     <div className={styles.div}>
-      <button className={styles.btn}>
-        <NavLink className={styles.link} to="/home">Home</NavLink>
+      <NavLink className={styles.btn} to="/home">
+        Home
+      </NavLink>
+
+      <NavLink className={styles.btn} to="/about">
+        About
+      </NavLink>
+
+      <NavLink className={styles.btn} to="/favorites">
+        Favorites
+      </NavLink>
+
+      <button className={styles.btn2} onClick={handleLogOut}>
+        Log Out
       </button>
-      <button className={styles.btn}>
-        <NavLink className={styles.link} to="/about">About</NavLink>
-      </button>
+
       <SearchBar onSearch={onSearch} />
     </div>
   );

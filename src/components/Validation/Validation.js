@@ -10,20 +10,16 @@ const validation = (userData) => {
     errors.email = "ingrese un email válido";
   if (!userData.email) errors.email = "ingrese un email";
   if (userData.email.length > 35)
-    errors.email = "ha superado el limite de caracteres(35)";
+    errors.email = "ha superado el límite de 35 caracteres";
 
   //validaciones para password
-  if (
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,10}/.test(
-      userData.password
-    )
-  )
-    errors.password = `la contraseña debe contener: 
-    -Entre 6 y 10 caracteres
-    -Al menos una mayúscula y una minuscula
-    -Al menos un dígito
-    -Al menos 1 caracter especial`;
-
+  if (!/.*\d+.*/.test(userData.password)) {
+    errors.password = "la contraseña debe contener al menos un número";
+  }
+  if (userData.password.length < 6 || userData.password.length > 10) {
+    errors.password =
+      "la contraseña debe tener un tamaño entre 6 y 10 caracteres";
+  }
   return errors;
 };
 

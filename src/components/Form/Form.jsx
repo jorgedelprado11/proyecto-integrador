@@ -44,17 +44,17 @@ const Form = ({ login }) => {
           value={userData.email}
           onChange={handleChange}
         />
-        {errors.email && <p>{errors.email}</p>}
+        {errors.email && <p className={styles.errors}>{errors.email}</p>}
         <hr />
         <label htmlFor="password">Password:</label>
         <input
           name="password"
-          type="text"
+          type="password"
           placeholder="ingresa tu password"
           value={userData.password}
           onChange={handleChange}
         />
-        {errors.password && <p>{errors.password}</p>}
+        {errors.password && <p className={styles.errors}>{errors.password}</p>}
         <hr />
         <button className={styles.btn}>Submit</button>
       </form>
